@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config();
 const authRouther = require('./routes/auth');
 const adminRouter = require('./routes/admin');
 const productRouter = require('./routes/product');
@@ -22,7 +23,7 @@ app.listen(PORT, "0.0.0.0", ()=>{
 
 
 // Database Info
-const DB = 'mongodb+srv://jayaraj:Nanna143@cluster0.h1rhxus.mongodb.net/'; //Database URL
+const DB = process.env.MONGODB_URI; //Database URL
 
 // Connection to database 
 mongoose.set('strictQuery', true);
